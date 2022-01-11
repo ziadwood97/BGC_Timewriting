@@ -1,0 +1,1206 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/13/2021 3:47:47 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="9DZJGQ2"
+  DTS:CreatorName="WOODGROUP\ziad.houari"
+  DTS:DTSID="{71BA1D6B-6249-46B4-9825-F51649AEDF88}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Summary"
+  DTS:PackageType="5"
+  DTS:VersionBuild="55"
+  DTS:VersionGUID="{8C0FC6B4-460C-4824-838F-3B93B1D9D822}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ABZ44P-SQL1.Timewriting]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C24E0DD9-8D9D-4D98-AA20-8130BF1F724E}"
+      DTS:ObjectName="ABZ44P-SQL1.Timewriting">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ABZ44P-SQL1;Initial Catalog=Timewriting;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{7A5FCE16-70BC-44DF-90F5-F6549D7E238C}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=I:\Active Projects - Dubai\BGC EPS Contract\Cost Control\Timewriting\Summary of Employees Bookings\Summary.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{24E15CCA-88CF-48D6-B5F5-EA4A4D41F3D8}"
+      DTS:ObjectName="Excel Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=I:\Active Projects - Dubai\BGC EPS Contract\Cost Control\Timewriting\Timesheet Tracker\Timesheet Tracker 2020-2021.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=NO&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Export to Normal Excel"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{D0119341-BC27-4C7B-B027-00F0DC4434DF}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Export to Normal Excel"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Export to Normal Excel\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Export to Normal Excel\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Export to Normal Excel\Data Conversion.Inputs[Data Conversion Input].Columns[WO_Numbers]"
+                      cachedDataType="nText"
+                      cachedName="WO_Numbers"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[WO_Numbers]" />
+                    <inputColumn
+                      refId="Package\Export to Normal Excel\Data Conversion.Inputs[Data Conversion Input].Columns[BGC Approver]"
+                      cachedDataType="nText"
+                      cachedName="BGC Approver"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[BGC Approver]" />
+                    <inputColumn
+                      refId="Package\Export to Normal Excel\Data Conversion.Inputs[Data Conversion Input].Columns[Wood Approver]"
+                      cachedDataType="nText"
+                      cachedName="Wood Approver"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Wood Approver]" />
+                    <inputColumn
+                      refId="Package\Export to Normal Excel\Data Conversion.Inputs[Data Conversion Input].Columns[Oracle_Project_Number]"
+                      cachedDataType="nText"
+                      cachedName="Oracle_Project_Number"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Oracle_Project_Number]" />
+                    <inputColumn
+                      refId="Package\Export to Normal Excel\Data Conversion.Inputs[Data Conversion Input].Columns[Total_Hours]"
+                      cachedDataType="r8"
+                      cachedName="Total_Hours"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Total_Hours]" />
+                    <inputColumn
+                      refId="Package\Export to Normal Excel\Data Conversion.Inputs[Data Conversion Input].Columns[Timesheet_Period]"
+                      cachedDataType="nText"
+                      cachedName="Timesheet_Period"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Timesheet_Period]" />
+                    <inputColumn
+                      refId="Package\Export to Normal Excel\Data Conversion.Inputs[Data Conversion Input].Columns[Timesheet_Number]"
+                      cachedDataType="nText"
+                      cachedName="Timesheet_Number"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Timesheet_Number]" />
+                    <inputColumn
+                      refId="Package\Export to Normal Excel\Data Conversion.Inputs[Data Conversion Input].Columns[Date_Created]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Date_Created"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date_Created]" />
+                    <inputColumn
+                      refId="Package\Export to Normal Excel\Data Conversion.Inputs[Data Conversion Input].Columns[Employee Name]"
+                      cachedDataType="nText"
+                      cachedName="Employee Name"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Employee Name]" />
+                    <inputColumn
+                      refId="Package\Export to Normal Excel\Data Conversion.Inputs[Data Conversion Input].Columns[Employee Number]"
+                      cachedDataType="r8"
+                      cachedName="Employee Number"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Employee Number]" />
+                    <inputColumn
+                      refId="Package\Export to Normal Excel\Data Conversion.Inputs[Data Conversion Input].Columns[Code]"
+                      cachedDataType="nText"
+                      cachedName="Code"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code]" />
+                    <inputColumn
+                      refId="Package\Export to Normal Excel\Data Conversion.Inputs[Data Conversion Input].Columns[Booking Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Booking Date"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Booking Date]" />
+                    <inputColumn
+                      refId="Package\Export to Normal Excel\Data Conversion.Inputs[Data Conversion Input].Columns[Expenditure Type]"
+                      cachedDataType="nText"
+                      cachedName="Expenditure Type"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Expenditure Type]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Export to Normal Excel\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of WO_Numbers]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of WO_Numbers]"
+                      name="Copy of WO_Numbers"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[WO_Numbers]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of BGC Approver]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of BGC Approver]"
+                      name="Copy of BGC Approver"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[BGC Approver]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Wood Approver]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Wood Approver]"
+                      name="Copy of Wood Approver"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Wood Approver]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Oracle_Project_Number]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Oracle_Project_Number]"
+                      name="Copy of Oracle_Project_Number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Oracle_Project_Number]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Total_Hours]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Total_Hours]"
+                      name="Copy of Total_Hours"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Total_Hours]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Timesheet_Period]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Timesheet_Period]"
+                      name="Copy of Timesheet_Period"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Timesheet_Period]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Timesheet_Number]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Timesheet_Number]"
+                      name="Copy of Timesheet_Number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Timesheet_Number]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Date_Created]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Date_Created]"
+                      name="Copy of Date_Created"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date_Created]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Employee Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Employee Name]"
+                      name="Copy of Employee Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Employee Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Employee Number]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Employee Number]"
+                      name="Copy of Employee Number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Employee Number]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]"
+                      name="Copy of Code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Booking Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Booking Date]"
+                      name="Copy of Booking Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Booking Date]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Expenditure Type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Expenditure Type]"
+                      name="Copy of Expenditure Type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Expenditure Type]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Export to Normal Excel\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Export to Normal Excel\Excel Destination"
+              componentClassID="Microsoft.ExcelDestination"
+              contactInfo="Excel Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Excel Destination"
+              name="Excel Destination"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Sheet1$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Export to Normal Excel\Excel Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Excel Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of Oracle_Project_Number]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Oracle_Project_Number"
+                      externalMetadataColumnId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Oracle_Project_Number]"
+                      lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Oracle_Project_Number]" />
+                    <inputColumn
+                      refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of Total_Hours]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Total_Hours"
+                      externalMetadataColumnId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Total_Hours]"
+                      lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Total_Hours]" />
+                    <inputColumn
+                      refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of Timesheet_Period]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Timesheet_Period"
+                      externalMetadataColumnId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Timesheet_Period]"
+                      lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Timesheet_Period]" />
+                    <inputColumn
+                      refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of Timesheet_Number]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Timesheet_Number"
+                      externalMetadataColumnId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Timesheet_Number]"
+                      lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Timesheet_Number]" />
+                    <inputColumn
+                      refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of Date_Created]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Date_Created"
+                      externalMetadataColumnId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Date_Created]"
+                      lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Date_Created]" />
+                    <inputColumn
+                      refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of Employee Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Employee Name"
+                      externalMetadataColumnId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Employee Name]"
+                      lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Employee Name]" />
+                    <inputColumn
+                      refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of Employee Number]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Employee Number"
+                      externalMetadataColumnId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Employee Number]"
+                      lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Employee Number]" />
+                    <inputColumn
+                      refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of Code]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Code"
+                      externalMetadataColumnId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Code]"
+                      lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]" />
+                    <inputColumn
+                      refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of Booking Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Copy of Booking Date"
+                      externalMetadataColumnId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Booking Date]"
+                      lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Booking Date]" />
+                    <inputColumn
+                      refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of Expenditure Type]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Expenditure Type"
+                      externalMetadataColumnId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Expenditure Type]"
+                      lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Expenditure Type]" />
+                    <inputColumn
+                      refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of WO_Numbers]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of WO_Numbers"
+                      externalMetadataColumnId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[WO_Numbers]"
+                      lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of WO_Numbers]" />
+                    <inputColumn
+                      refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of BGC Approver]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of BGC Approver"
+                      externalMetadataColumnId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[BGC Approver]"
+                      lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of BGC Approver]" />
+                    <inputColumn
+                      refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of Wood Approver]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Wood Approver"
+                      externalMetadataColumnId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Wood Approver]"
+                      lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Wood Approver]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[WO_Numbers]"
+                      dataType="wstr"
+                      length="255"
+                      name="WO_Numbers" />
+                    <externalMetadataColumn
+                      refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[BGC Approver]"
+                      dataType="wstr"
+                      length="255"
+                      name="BGC Approver" />
+                    <externalMetadataColumn
+                      refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Wood Approver]"
+                      dataType="wstr"
+                      length="255"
+                      name="Wood Approver" />
+                    <externalMetadataColumn
+                      refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Oracle_Project_Number]"
+                      dataType="r8"
+                      name="Oracle_Project_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Total_Hours]"
+                      dataType="r8"
+                      name="Total_Hours" />
+                    <externalMetadataColumn
+                      refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Timesheet_Period]"
+                      dataType="wstr"
+                      length="255"
+                      name="Timesheet_Period" />
+                    <externalMetadataColumn
+                      refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Timesheet_Number]"
+                      dataType="wstr"
+                      length="255"
+                      name="Timesheet_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Date_Created]"
+                      dataType="date"
+                      name="Date_Created" />
+                    <externalMetadataColumn
+                      refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Employee Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Employee Name" />
+                    <externalMetadataColumn
+                      refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Employee Number]"
+                      dataType="wstr"
+                      length="255"
+                      name="Employee Number" />
+                    <externalMetadataColumn
+                      refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Code]"
+                      dataType="wstr"
+                      length="255"
+                      name="Code" />
+                    <externalMetadataColumn
+                      refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Booking Date]"
+                      dataType="date"
+                      name="Booking Date" />
+                    <externalMetadataColumn
+                      refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Expenditure Type]"
+                      dataType="wstr"
+                      length="255"
+                      name="Expenditure Type" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Export to Normal Excel\Excel Destination.Outputs[Excel Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Excel Destination Error Output"
+                  synchronousInputId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Export to Normal Excel\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Export to Normal Excel\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Export to Normal Excel\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Summary]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Export to Normal Excel\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ABZ44P-SQL1.Timewriting]"
+                  connectionManagerRefId="Package.ConnectionManagers[ABZ44P-SQL1.Timewriting]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[WO_Numbers]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WO_Numbers]"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[WO_Numbers]"
+                      name="WO_Numbers"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[BGC Approver]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BGC Approver]"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[BGC Approver]"
+                      name="BGC Approver"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Wood Approver]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Wood Approver]"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Wood Approver]"
+                      name="Wood Approver"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Oracle_Project_Number]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Oracle_Project_Number]"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Oracle_Project_Number]"
+                      name="Oracle_Project_Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Total_Hours]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Total_Hours]"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Total_Hours]"
+                      name="Total_Hours"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Timesheet_Period]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Timesheet_Period]"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Timesheet_Period]"
+                      name="Timesheet_Period"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Timesheet_Number]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Timesheet_Number]"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Timesheet_Number]"
+                      name="Timesheet_Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date_Created]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Date_Created]"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date_Created]"
+                      name="Date_Created"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Employee Name]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Employee Name]"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Employee Name]"
+                      name="Employee Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Employee Number]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Employee Number]"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Employee Number]"
+                      name="Employee Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code]"
+                      name="Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Booking Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Booking Date]"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Booking Date]"
+                      name="Booking Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Expenditure Type]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Expenditure Type]"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Expenditure Type]"
+                      name="Expenditure Type"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WO_Numbers]"
+                      dataType="nText"
+                      name="WO_Numbers" />
+                    <externalMetadataColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BGC Approver]"
+                      dataType="nText"
+                      name="BGC Approver" />
+                    <externalMetadataColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Wood Approver]"
+                      dataType="nText"
+                      name="Wood Approver" />
+                    <externalMetadataColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Oracle_Project_Number]"
+                      dataType="nText"
+                      name="Oracle_Project_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Total_Hours]"
+                      dataType="r8"
+                      name="Total_Hours" />
+                    <externalMetadataColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Timesheet_Period]"
+                      dataType="nText"
+                      name="Timesheet_Period" />
+                    <externalMetadataColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Timesheet_Number]"
+                      dataType="nText"
+                      name="Timesheet_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Date_Created]"
+                      dataType="dbTimeStamp"
+                      name="Date_Created" />
+                    <externalMetadataColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Employee Name]"
+                      dataType="nText"
+                      name="Employee Name" />
+                    <externalMetadataColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Employee Number]"
+                      dataType="r8"
+                      name="Employee Number" />
+                    <externalMetadataColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                      dataType="nText"
+                      name="Code" />
+                    <externalMetadataColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Booking Date]"
+                      dataType="dbTimeStamp"
+                      name="Booking Date" />
+                    <externalMetadataColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Expenditure Type]"
+                      dataType="nText"
+                      name="Expenditure Type" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Employee Name]"
+                      dataType="nText"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Employee Name]"
+                      name="Employee Name" />
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Employee Number]"
+                      dataType="r8"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Employee Number]"
+                      name="Employee Number" />
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WO_Numbers]"
+                      dataType="nText"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WO_Numbers]"
+                      name="WO_Numbers" />
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BGC Approver]"
+                      dataType="nText"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BGC Approver]"
+                      name="BGC Approver" />
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Wood Approver]"
+                      dataType="nText"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Wood Approver]"
+                      name="Wood Approver" />
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Code]"
+                      dataType="nText"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Code]"
+                      name="Code" />
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Oracle_Project_Number]"
+                      dataType="nText"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Oracle_Project_Number]"
+                      name="Oracle_Project_Number" />
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Total_Hours]"
+                      dataType="r8"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Total_Hours]"
+                      name="Total_Hours" />
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Timesheet_Period]"
+                      dataType="nText"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Timesheet_Period]"
+                      name="Timesheet_Period" />
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Timesheet_Number]"
+                      dataType="nText"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Timesheet_Number]"
+                      name="Timesheet_Number" />
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Booking Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Booking Date]"
+                      name="Booking Date" />
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Expenditure Type]"
+                      dataType="nText"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Expenditure Type]"
+                      name="Expenditure Type" />
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Date_Created]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Date_Created]"
+                      name="Date_Created" />
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Export to Normal Excel.Paths[Data Conversion Output]"
+              endId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Export to Normal Excel.Paths[OLE DB Source Output]"
+              endId="Package\Export to Normal Excel\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Timetracker Generation"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{95C5A5CA-36E5-44D6-9A05-C3CE18DF195F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Timetracker Generation"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C24E0DD9-8D9D-4D98-AA20-8130BF1F724E}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.[Summary]&#xA;&#xA;INSERT INTO dbo.[Summary]&#xA;select distinct [Employee Name],[Employee Number],CONCAT([Employee Number],[Project Number],DATEPART ( DAY , [Booking Date] ),DATEPART ( month , [Booking Date] ),DATEPART ( year , [Booking Date] ),sum( [Hours/Quantity] ),'_',[Expenditure Type])as Code, [wo_ref] as WO_Numbers,[bgc_approver_name] as&#xA;[BGC Approver],[wood_approver_name] as [Wood Approver],[Project Number] as Oracle_Project_Number, &#xA;sum( [Hours/Quantity] ) AS Total_Hours,CONCAT('WE ',Convert(varchar,Convert(date,[Period End Date]),13)) as &#xA;Timesheet_Period, CONCAT('TS_',[wo_ref],'_',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Number, Convert(varchar,GETDATE(),106) AS Date_Created,CONVERT(Date, [Booking Date]), [Expenditure Type] from [dbo].[921IndividualTS] &#xA;where  [wo_ref] !='0' AND [wo_ref] !='WG0046A'&#xA; group by [Employee Name],[Employee Number],[wo_ref],[Period End Date],[bgc_approver_name],[wood_approver_name],[Project Number],[Booking Date],[Expenditure Type];&#xA;&#xA;&#xA;INSERT INTO dbo.[Summary]&#xA;select distinct [Employee Name],[Employee Number],CONCAT([Employee Number],[Project Number],DATEPART ( DAY , [Booking Date] ),DATEPART ( month , [Booking Date] ),DATEPART ( year , [Booking Date] ),sum( [Hours/Quantity] ),'_',[Expenditure Type])as Code,[wo_ref] &#xA; as WO_Numbers,[bgc_approver_name] as [BGC Approver],[wood_approver_name] as [Wood Approver],[Project Number] as Oracle_Project_Number, &#xA;sum( [Hours/Quantity] ) AS Total_Hours,CONCAT('WE ',Convert(varchar,Convert(date,[Period End Date]),13)) as &#xA;Timesheet_Period, CONCAT('TS_',[wo_ref],'_',Convert(varchar,Convert(date,[Period End Date]),13)) as &#xA;Timesheet_Number, Convert(varchar,GETDATE(),106) AS Date_Created,CONVERT(Date, [Period End Date]), [Expenditure Type] from [dbo].[WG0046_WG00197_IndividualTS] &#xA; group by [Employee Name],[Employee Number],[wo_ref],[Period End Date],[bgc_approver_name],[wood_approver_name],[Project Number],[Booking Date],[Expenditure Type];&#xA;&#xA;INSERT INTO dbo.[Summary]&#xA;  select distinct [Employee Name],[Employee Number],CONCAT([Employee Number],[Project Number],DATEPART ( DAY , [Booking Date] ),DATEPART ( month , [Booking Date] ),DATEPART ( year , [Booking Date] ),sum( [Hours/Quantity] ),'_',[Expenditure Type])as Code,[Work Orders] as WO_Numbers,[BGC Approver],[Wood Approver],[Project Number] as Oracle_Project_Number, &#xA;sum( [Hours/Quantity] ) AS Total_Hours,CONCAT('WE ',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Period, CONCAT('TS_',[Work Orders],'_',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Number, Convert(varchar,GETDATE(),106) AS Date_Created,CONVERT(Date, [Period End Date]), [Expenditure Type] from [dbo].[963IndividualTS] &#xA; group by [Employee Name],[Employee Number],[Work Orders],[Period End Date],[BGC Approver],[Wood Approver],[Project Number],[Booking Date],[Expenditure Type];&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{C1236B6C-889F-41F7-A619-809DF6518672}"
+      DTS:From="Package\Timetracker Generation"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Export to Normal Excel" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="187,42"
+          Id="Package\Export to Normal Excel"
+          TopLeft="459,258" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\Timetracker Generation"
+          TopLeft="459,167" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="553.25,209">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Export to Normal Excel">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Export to Normal Excel\Excel Destination"
+          TopLeft="524,309" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Export to Normal Excel\OLE DB Source"
+          TopLeft="529,122" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Export to Normal Excel\Data Conversion"
+          TopLeft="533,196" />
+        <EdgeLayout
+          Id="Package\Export to Normal Excel.Paths[OLE DB Source Output]"
+          TopLeft="607.5,164">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32"
+              Start="0,0"
+              End="0,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Export to Normal Excel.Paths[Data Conversion Output]"
+          TopLeft="607.25,238">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,71"
+              Start="0,0"
+              End="0,63.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Export to Normal Excel\Excel Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Export to Normal Excel\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
