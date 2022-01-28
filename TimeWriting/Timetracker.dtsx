@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package2"
   DTS:PackageType="5"
-  DTS:VersionBuild="46"
-  DTS:VersionGUID="{24811D95-AD1F-436D-9E81-EF51B268BDFC}">
+  DTS:VersionBuild="84"
+  DTS:VersionGUID="{2D1A77EB-EB1E-4F55-83CE-DA9A2A0EE144}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -84,7 +84,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">'17Dec2021_15Jan2021$'</property>
+                  name="OpenRowset">'17Dec2021_15Jan2022$'</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -200,8 +200,7 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[F1]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="r8"
                       name="F1" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[F2]"
@@ -225,8 +224,7 @@
                       name="F5" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[F6]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="r8"
                       name="F6" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[F7]"
@@ -255,18 +253,15 @@
                       name="F11" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[F12]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="date"
                       name="F12" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[F13]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="date"
                       name="F13" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[F14]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="r8"
                       name="F14" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[F15]"
@@ -345,24 +340,13 @@
                       name="F29" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[F30]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="r8"
                       name="F30" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[F31]"
                       dataType="wstr"
                       length="255"
                       name="F31" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[F32]"
-                      dataType="wstr"
-                      length="255"
-                      name="F32" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[F33]"
-                      dataType="wstr"
-                      length="255"
-                      name="F33" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -699,50 +683,42 @@
                   <inputColumns>
                     <inputColumn
                       refId="Package\Export to Normal Excel\Data Conversion.Inputs[Data Conversion Input].Columns[SEQ]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
+                      cachedDataType="i4"
                       cachedName="SEQ"
                       lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[SEQ]" />
                     <inputColumn
                       refId="Package\Export to Normal Excel\Data Conversion.Inputs[Data Conversion Input].Columns[WO_Numbers]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
+                      cachedDataType="nText"
                       cachedName="WO_Numbers"
                       lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[WO_Numbers]" />
                     <inputColumn
                       refId="Package\Export to Normal Excel\Data Conversion.Inputs[Data Conversion Input].Columns[BGC Approver]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
+                      cachedDataType="nText"
                       cachedName="BGC Approver"
                       lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[BGC Approver]" />
                     <inputColumn
                       refId="Package\Export to Normal Excel\Data Conversion.Inputs[Data Conversion Input].Columns[Wood Approver]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
+                      cachedDataType="nText"
                       cachedName="Wood Approver"
                       lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Wood Approver]" />
                     <inputColumn
                       refId="Package\Export to Normal Excel\Data Conversion.Inputs[Data Conversion Input].Columns[Oracle_Project_Number]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
+                      cachedDataType="nText"
                       cachedName="Oracle_Project_Number"
                       lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Oracle_Project_Number]" />
                     <inputColumn
                       refId="Package\Export to Normal Excel\Data Conversion.Inputs[Data Conversion Input].Columns[Total_Hours]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
+                      cachedDataType="r8"
                       cachedName="Total_Hours"
                       lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Total_Hours]" />
                     <inputColumn
                       refId="Package\Export to Normal Excel\Data Conversion.Inputs[Data Conversion Input].Columns[Timesheet_Period]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
+                      cachedDataType="nText"
                       cachedName="Timesheet_Period"
                       lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Timesheet_Period]" />
                     <inputColumn
                       refId="Package\Export to Normal Excel\Data Conversion.Inputs[Data Conversion Input].Columns[Timesheet_Number]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
+                      cachedDataType="nText"
                       cachedName="Timesheet_Number"
                       lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Timesheet_Number]" />
                     <inputColumn
@@ -810,7 +786,7 @@
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      length="50"
+                      length="250"
                       lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of BGC Approver]"
                       name="Copy of BGC Approver"
                       truncationRowDisposition="FailComponent">
@@ -1059,7 +1035,7 @@
                     <inputColumn
                       refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of BGC Approver]"
                       cachedDataType="wstr"
-                      cachedLength="50"
+                      cachedLength="250"
                       cachedName="Copy of BGC Approver"
                       externalMetadataColumnId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[BGC Approver]"
                       lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of BGC Approver]" />
@@ -1244,81 +1220,73 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[SEQ]"
-                      dataType="wstr"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SEQ]"
-                      length="50"
                       lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[SEQ]"
                       name="SEQ"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[WO_Numbers]"
-                      dataType="wstr"
+                      dataType="nText"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WO_Numbers]"
-                      length="50"
                       lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[WO_Numbers]"
                       name="WO_Numbers"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[BGC Approver]"
-                      dataType="wstr"
+                      dataType="nText"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BGC Approver]"
-                      length="50"
                       lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[BGC Approver]"
                       name="BGC Approver"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Wood Approver]"
-                      dataType="wstr"
+                      dataType="nText"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Wood Approver]"
-                      length="50"
                       lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Wood Approver]"
                       name="Wood Approver"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Oracle_Project_Number]"
-                      dataType="wstr"
+                      dataType="nText"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Oracle_Project_Number]"
-                      length="50"
                       lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Oracle_Project_Number]"
                       name="Oracle_Project_Number"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Total_Hours]"
-                      dataType="wstr"
+                      dataType="r8"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Total_Hours]"
-                      length="50"
                       lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Total_Hours]"
                       name="Total_Hours"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Timesheet_Period]"
-                      dataType="wstr"
+                      dataType="nText"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Timesheet_Period]"
-                      length="50"
                       lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Timesheet_Period]"
                       name="Timesheet_Period"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Timesheet_Number]"
-                      dataType="wstr"
+                      dataType="nText"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Timesheet_Number]"
-                      length="50"
                       lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Timesheet_Number]"
                       name="Timesheet_Number"
                       truncationRowDisposition="FailComponent" />
@@ -1327,12 +1295,12 @@
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Date_Created]"
                       length="50"
                       lineageId="Package\Export to Normal Excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date_Created]"
                       name="Date_Created"
-                      truncationRowDisposition="IgnoreFailure" />
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1473,7 +1441,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{658886C3-91A4-4B44-937C-9BE0229D6387}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.[Timetracker]&#xA;&#xA;INSERT INTO dbo.[Timetracker]&#xA;select distinct [wo_ref] as WO_Numbers,[bgc_approver_name] as [BGC Approver],[wood_approver_name] as [Wood Approver],[Project Number] as Oracle_Project_Number, &#xA;sum( [Hours/Quantity] ) AS Total_Hours,CONCAT('WE ',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Period, CONCAT('TS_',[wo_ref],'_',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Number, Convert(varchar,GETDATE(),106) AS Date_Created from [dbo].[921IndividualTS] &#xA;where [Period End Date] &gt;= DATEADD(week, -4, GETDATE()) AND [wo_ref] !='0' AND [wo_ref] !='WG0046A'&#xA; group by [wo_ref],[Period End Date],[bgc_approver_name],[wood_approver_name],[Project Number];&#xA;&#xA;&#xA;INSERT INTO dbo.[Timetracker]&#xA;select distinct [wo_ref] as WO_Numbers,[bgc_approver_name] as [BGC Approver],[wood_approver_name] as [Wood Approver],[Project Number] as Oracle_Project_Number, &#xA;sum( [Hours/Quantity] ) AS Total_Hours,CONCAT('WE ',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Period, CONCAT('TS_',[wo_ref],'_',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Number, Convert(varchar,GETDATE(),106) AS Date_Created from [dbo].[WG0046_WG00197_IndividualTS] &#xA;where [Period End Date] &gt;= DATEADD(week, -4, GETDATE())&#xA; group by [wo_ref],[Period End Date],[bgc_approver_name],[wood_approver_name],[Project Number];&#xA;&#xA;INSERT INTO dbo.[Timetracker]&#xA;select distinct [Work Orders] as WO_Numbers,[BGC Approver],[Wood Approver],[Project Number] as Oracle_Project_Number, &#xA;sum( [Hours/Quantity] ) AS Total_Hours,CONCAT('WE ',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Period, CONCAT('TS_',[Work Orders],'_',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Number, Convert(varchar,GETDATE(),106) AS Date_Created from [dbo].[963IndividualTS] &#xA;where [Period End Date] &gt;= DATEADD(week, -4, GETDATE()) &#xA; group by [Work Orders],[Period End Date],[BGC Approver],[Wood Approver],[Project Number];&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.[Timetracker]&#xA;&#xA;INSERT INTO dbo.[Timetracker]&#xA;select distinct [wo_ref] as WO_Numbers,[bgc_approver_name] as [BGC Approver],[wood_approver_name] as [Wood Approver],[Project Number] as Oracle_Project_Number, &#xA;sum( [Hours/Quantity] ) AS Total_Hours,CONCAT('WE ',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Period, CONCAT('TS_',[wo_ref],'_',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Number, Convert(varchar,GETDATE(),106) AS Date_Created from [dbo].[921IndividualTS] &#xA;where [Period End Date] &gt;= DATEADD(week, -2, GETDATE()) AND [wo_ref] !='0' AND [wo_ref] !='WG00243A'&#xA; group by [wo_ref],[Period End Date],[bgc_approver_name],[wood_approver_name],[Project Number];&#xA;&#xA;&#xA;INSERT INTO dbo.[Timetracker]&#xA;select distinct [wo_ref] as WO_Numbers,[bgc_approver_name] as [BGC Approver],[wood_approver_name] as [Wood Approver],[Project Number] as Oracle_Project_Number, &#xA;sum( [Hours/Quantity] ) AS Total_Hours,CONCAT('WE ',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Period, CONCAT('TS_',[wo_ref],'_',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Number, Convert(varchar,GETDATE(),106) AS Date_Created from [dbo].[WG0046_WG00197_IndividualTS] &#xA;where [Period End Date] &gt;= DATEADD(week, -2, GETDATE())&#xA; group by [wo_ref],[Period End Date],[bgc_approver_name],[wood_approver_name],[Project Number];&#xA;&#xA;INSERT INTO dbo.[Timetracker]&#xA;select distinct [Work Orders] as WO_Numbers,[BGC Approver],[Wood Approver],[Project Number] as Oracle_Project_Number, &#xA;sum( [Hours/Quantity] ) AS Total_Hours,CONCAT('WE ',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Period, CONCAT('TS_',[Work Orders],'_',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Number, Convert(varchar,GETDATE(),106) AS Date_Created from [dbo].[963IndividualTS] &#xA;where [Period End Date] &gt;= DATEADD(week, -2, GETDATE()) &#xA; group by [Work Orders],[Period End Date],[BGC Approver],[Wood Approver],[Project Number];&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -1638,7 +1606,7 @@
         <NodeLayout
           Size="150,42"
           Id="Package\Export to Normal Excel\OLE DB Source"
-          TopLeft="529,122" />
+          TopLeft="519,106" />
         <NodeLayout
           Size="159,42"
           Id="Package\Export to Normal Excel\Excel Destination"
@@ -1649,18 +1617,30 @@
           TopLeft="527,209" />
         <EdgeLayout
           Id="Package\Export to Normal Excel.Paths[OLE DB Source Output]"
-          TopLeft="604.5,164">
+          TopLeft="594,148">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,45"
+              EndConnector="11,61"
               Start="0,0"
-              End="0,37.5">
+              End="11,53.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,37.5" />
+                    End="0,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.5"
+                    Point2="0,30.5"
+                    Point3="4,30.5" />
+                  <mssgle:LineSegment
+                    End="7,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7,30.5"
+                    Point2="11,30.5"
+                    Point3="11,34.5" />
+                  <mssgle:LineSegment
+                    End="11,53.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

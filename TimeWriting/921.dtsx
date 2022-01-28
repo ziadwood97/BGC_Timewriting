@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="164"
-  DTS:VersionGUID="{17DD3B89-D7F9-4C64-993B-7B4BDD594A29}">
+  DTS:VersionBuild="175"
+  DTS:VersionGUID="{A0FBFF4F-57C6-4174-9377-BFEB4B3E4EB1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -5738,7 +5738,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{658886C3-91A4-4B44-937C-9BE0229D6387}"
-          SQLTask:SqlStatementSource="DELETE FROM [921IndividualTSWeekly]&#xA;WHERE bgc_approver_name IS NULL;&#xA;&#xA;DELETE FROM [921IndividualTSWeekly]&#xA;WHERE wo_ref = '0';&#xA;&#xA;DELETE FROM [921IndividualTSWeekly]&#xA;WHERE wo_ref='WG0046A';&#xA;&#xA;DELETE FROM [dbo].[921IndividualTSWeekly]&#xA;WHERE wo_ref='WG0197A' AND Discipline  !=  'Business Services' AND Discipline  !=  'IM' ;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="DELETE FROM [921IndividualTSWeekly]&#xA;WHERE bgc_approver_name IS NULL;&#xA;&#xA;DELETE FROM [921IndividualTSWeekly]&#xA;WHERE wo_ref = '0';&#xA;&#xA;DELETE FROM [921IndividualTSWeekly]&#xA;WHERE wo_ref='WG0243A';&#xA;&#xA;DELETE FROM [dbo].[921IndividualTSWeekly]&#xA;WHERE wo_ref='WG0234A' AND Discipline  !=  'Business Services' AND Discipline  !=  'IM' ;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -12725,6 +12725,11 @@
                       dataType="wstr"
                       length="255"
                       name="F46" />
+                    <externalMetadataColumn
+                      refId="Package\Excel --&gt; DB\PAFF Excel.Outputs[Excel Source Output].ExternalColumns[F47]"
+                      dataType="wstr"
+                      length="255"
+                      name="F47" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -13125,6 +13130,22 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Execute Process Task"
+      DTS:CreationName="Microsoft.ExecuteProcess"
+      DTS:Description="Execute Process Task"
+      DTS:DTSID="{79E5371C-77E4-494C-BA48-6B21F9C8DD98}"
+      DTS:ExecutableType="Microsoft.ExecuteProcess"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute Process Task"
+      DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecuteProcessData
+          Executable="J:\ZHZ\ssrs\TimeSheet Reporting\TimeSheetReporting\bin\Debug\TimeSheetReporting.exe" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Query 921 Tables (AE,IND,UK)--&gt;(ALL)"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -13206,7 +13227,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{658886C3-91A4-4B44-937C-9BE0229D6387}"
-          SQLTask:SqlStatementSource="INSERT INTO [dbo].[WG0046_WG00197_IndividualTS]&#xA;SELECT * FROM [dbo].[921IndividualTS]&#xA;WHERE wo_ref='WG0046A';&#xA;INSERT INTO [dbo].[WG0046_WG00197_IndividualTS]&#xA;SELECT * FROM [dbo].[921IndividualTS]&#xA;WHERE wo_ref='WG0197A' AND Discipline  !=  'Business Services' AND Discipline  !=  'IM' ;&#xA;&#xA;UPDATE [dbo].[WG0046_WG00197_IndividualTS]&#xA;SET [dbo].[WG0046_WG00197_IndividualTS].bgc_approver_name  = (&#xA;SELECT [dbo].[WG0046A&amp;WG0197AApprovers].bgc_approver_name&#xA;FROM [dbo].[WG0046A&amp;WG0197AApprovers]&#xA;WHERE [dbo].[WG0046A&amp;WG0197AApprovers].Discipline = [dbo].[WG0046_WG00197_IndividualTS].Discipline &#xA;);&#xA;&#xA;UPDATE [dbo].[WG0046_WG00197_IndividualTS]&#xA;SET dbo.[WG0046_WG00197_IndividualTS].bgc_approver_designation  = (&#xA;SELECT dbo.[WG0046A&amp;WG0197AApprovers].bgc_approver_designation&#xA;FROM dbo.[WG0046A&amp;WG0197AApprovers]&#xA;WHERE dbo.[WG0046A&amp;WG0197AApprovers].Discipline = dbo.[WG0046_WG00197_IndividualTS].Discipline &#xA;);&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="INSERT INTO [dbo].[WG0046_WG00197_IndividualTS]&#xA;SELECT * FROM [dbo].[921IndividualTS]&#xA;WHERE wo_ref='WG0243A';&#xA;INSERT INTO [dbo].[WG0046_WG00197_IndividualTS]&#xA;SELECT * FROM [dbo].[921IndividualTS]&#xA;WHERE wo_ref='WG0234A' AND Discipline  !=  'Business Services' AND Discipline  !=  'IM' ;&#xA;&#xA;UPDATE [dbo].[WG0046_WG00197_IndividualTS]&#xA;SET [dbo].[WG0046_WG00197_IndividualTS].bgc_approver_name  = (&#xA;SELECT [dbo].[WG0046A&amp;WG0197AApprovers].bgc_approver_name&#xA;FROM [dbo].[WG0046A&amp;WG0197AApprovers]&#xA;WHERE [dbo].[WG0046A&amp;WG0197AApprovers].Discipline = [dbo].[WG0046_WG00197_IndividualTS].Discipline &#xA;);&#xA;&#xA;UPDATE [dbo].[WG0046_WG00197_IndividualTS]&#xA;SET dbo.[WG0046_WG00197_IndividualTS].bgc_approver_designation  = (&#xA;SELECT dbo.[WG0046A&amp;WG0197AApprovers].bgc_approver_designation&#xA;FROM dbo.[WG0046A&amp;WG0197AApprovers]&#xA;WHERE dbo.[WG0046A&amp;WG0197AApprovers].Discipline = dbo.[WG0046_WG00197_IndividualTS].Discipline &#xA;);&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -13223,7 +13244,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{658886C3-91A4-4B44-937C-9BE0229D6387}"
-          SQLTask:SqlStatementSource="INSERT INTO [dbo].[921_WG0046A&amp;WG0197A]&#xA;SELECT * FROM [dbo].[921IndividualTSWeekly]&#xA;WHERE wo_ref='WG0046A';&#xA;INSERT INTO [dbo].[921_WG0046A&amp;WG0197A]&#xA;SELECT * FROM [dbo].[921IndividualTSWeekly]&#xA;WHERE wo_ref='WG0197A' AND Discipline  !=  'Business Services' AND Discipline  !=  'IM' ;&#xA;&#xA;UPDATE [dbo].[921_WG0046A&amp;WG0197A]&#xA;SET [dbo].[921_WG0046A&amp;WG0197A].bgc_approver_name  = (&#xA;SELECT [dbo].[WG0046A&amp;WG0197AApprovers].bgc_approver_name&#xA;FROM [dbo].[WG0046A&amp;WG0197AApprovers]&#xA;WHERE [dbo].[WG0046A&amp;WG0197AApprovers].Discipline = [dbo].[921_WG0046A&amp;WG0197A].Discipline &#xA;);&#xA;&#xA;UPDATE [dbo].[921_WG0046A&amp;WG0197A]&#xA;SET dbo.[921_WG0046A&amp;WG0197A].bgc_approver_designation  = (&#xA;SELECT dbo.[WG0046A&amp;WG0197AApprovers].bgc_approver_designation&#xA;FROM dbo.[WG0046A&amp;WG0197AApprovers]&#xA;WHERE dbo.[WG0046A&amp;WG0197AApprovers].Discipline = dbo.[921_WG0046A&amp;WG0197A].Discipline &#xA;);&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="INSERT INTO [dbo].[921_WG0046A&amp;WG0197A]&#xA;SELECT * FROM [dbo].[921IndividualTSWeekly]&#xA;WHERE wo_ref='WG0243A';&#xA;INSERT INTO [dbo].[921_WG0046A&amp;WG0197A]&#xA;SELECT * FROM [dbo].[921IndividualTSWeekly]&#xA;WHERE wo_ref='WG0234A' AND Discipline  !=  'Business Services' AND Discipline  !=  'IM' ;&#xA;&#xA;UPDATE [dbo].[921_WG0046A&amp;WG0197A]&#xA;SET [dbo].[921_WG0046A&amp;WG0197A].bgc_approver_name  = (&#xA;SELECT [dbo].[WG0046A&amp;WG0197AApprovers].bgc_approver_name&#xA;FROM [dbo].[WG0046A&amp;WG0197AApprovers]&#xA;WHERE [dbo].[WG0046A&amp;WG0197AApprovers].Discipline = [dbo].[921_WG0046A&amp;WG0197A].Discipline &#xA;);&#xA;&#xA;UPDATE [dbo].[921_WG0046A&amp;WG0197A]&#xA;SET dbo.[921_WG0046A&amp;WG0197A].bgc_approver_designation  = (&#xA;SELECT dbo.[WG0046A&amp;WG0197AApprovers].bgc_approver_designation&#xA;FROM dbo.[WG0046A&amp;WG0197AApprovers]&#xA;WHERE dbo.[WG0046A&amp;WG0197AApprovers].Discipline = dbo.[921_WG0046A&amp;WG0197A].Discipline &#xA;);&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -13252,6 +13273,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 10"
       DTS:To="Package\WG00197A and WG0046A" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 11]"
+      DTS:CreationName=""
+      DTS:DTSID="{7D4392EC-1B28-4C13-8BF0-97340D633B74}"
+      DTS:From="Package\DELETE NULL APPROVERS"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 11"
+      DTS:To="Package\Execute Process Task" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
@@ -13353,6 +13382,10 @@
           Size="139,42"
           Id="Package\Excel --&gt; DB"
           TopLeft="212.153846153846,195.461538461538" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Execute Process Task"
+          TopLeft="1164,87" />
         <NodeLayout
           Size="265,42"
           Id="Package\Query 921 Tables (AE,IND,UK)--&gt;(ALL)"
@@ -13459,6 +13492,40 @@
                     Point3="-225.666666666667,20.2376237623762" />
                   <mssgle:LineSegment
                     End="-225.666666666667,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 11]"
+          TopLeft="1110,162">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="144,-33"
+              Start="0,0"
+              End="144,-25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-12.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-12.5"
+                    Point2="0,-16.5"
+                    Point3="4,-16.5" />
+                  <mssgle:LineSegment
+                    End="140,-16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="140,-16.5"
+                    Point2="144,-16.5"
+                    Point3="144,-20.5" />
+                  <mssgle:LineSegment
+                    End="144,-25.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14129,7 +14196,7 @@
     design-time-name="Package\Excel --&gt; DB">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="123,42"
           Id="Package\Excel --&gt; DB\(921IND)"
@@ -14155,10 +14222,6 @@
           Id="Package\Excel --&gt; DB\921 Approvers"
           TopLeft="158,385" />
         <NodeLayout
-          Size="230,42"
-          Id="Package\Excel --&gt; DB\WG0046A&amp;WG0197A Approvers"
-          TopLeft="453,438" />
-        <NodeLayout
           Size="115,42"
           Id="Package\Excel --&gt; DB\921IND"
           TopLeft="488,201" />
@@ -14170,6 +14233,10 @@
           Size="109,42"
           Id="Package\Excel --&gt; DB\921AE"
           TopLeft="331,201" />
+        <NodeLayout
+          Size="230,42"
+          Id="Package\Excel --&gt; DB\WG0046A&amp;WG0197A Approvers"
+          TopLeft="453,438" />
         <NodeLayout
           Size="169,42"
           Id="Package\Excel --&gt; DB\Remove Duplicates"
@@ -14201,9 +14268,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14237,9 +14302,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14261,9 +14324,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14285,9 +14346,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14309,9 +14368,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14333,9 +14390,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14357,9 +14412,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

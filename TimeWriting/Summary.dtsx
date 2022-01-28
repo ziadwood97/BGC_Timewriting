@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Summary"
   DTS:PackageType="5"
-  DTS:VersionBuild="55"
-  DTS:VersionGUID="{8C0FC6B4-460C-4824-838F-3B93B1D9D822}">
+  DTS:VersionBuild="60"
+  DTS:VersionGUID="{0E864CC1-466C-4F68-9CA2-3BADC7638038}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -372,7 +372,7 @@
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      length="50"
+                      length="150"
                       lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]"
                       name="Copy of Code"
                       truncationRowDisposition="FailComponent">
@@ -571,7 +571,7 @@
                     <inputColumn
                       refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of Code]"
                       cachedDataType="wstr"
-                      cachedLength="50"
+                      cachedLength="150"
                       cachedName="Copy of Code"
                       externalMetadataColumnId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Code]"
                       lineageId="Package\Export to Normal Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]" />
@@ -629,11 +629,13 @@
                       name="Wood Approver" />
                     <externalMetadataColumn
                       refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Oracle_Project_Number]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="255"
                       name="Oracle_Project_Number" />
                     <externalMetadataColumn
                       refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Total_Hours]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="255"
                       name="Total_Hours" />
                     <externalMetadataColumn
                       refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Timesheet_Period]"
@@ -647,7 +649,8 @@
                       name="Timesheet_Number" />
                     <externalMetadataColumn
                       refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Date_Created]"
-                      dataType="date"
+                      dataType="wstr"
+                      length="255"
                       name="Date_Created" />
                     <externalMetadataColumn
                       refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Employee Name]"
@@ -666,7 +669,8 @@
                       name="Code" />
                     <externalMetadataColumn
                       refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Booking Date]"
-                      dataType="date"
+                      dataType="wstr"
+                      length="255"
                       name="Booking Date" />
                     <externalMetadataColumn
                       refId="Package\Export to Normal Excel\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Expenditure Type]"
@@ -1053,7 +1057,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{C24E0DD9-8D9D-4D98-AA20-8130BF1F724E}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.[Summary]&#xA;&#xA;INSERT INTO dbo.[Summary]&#xA;select distinct [Employee Name],[Employee Number],CONCAT([Employee Number],[Project Number],DATEPART ( DAY , [Booking Date] ),DATEPART ( month , [Booking Date] ),DATEPART ( year , [Booking Date] ),sum( [Hours/Quantity] ),'_',[Expenditure Type])as Code, [wo_ref] as WO_Numbers,[bgc_approver_name] as&#xA;[BGC Approver],[wood_approver_name] as [Wood Approver],[Project Number] as Oracle_Project_Number, &#xA;sum( [Hours/Quantity] ) AS Total_Hours,CONCAT('WE ',Convert(varchar,Convert(date,[Period End Date]),13)) as &#xA;Timesheet_Period, CONCAT('TS_',[wo_ref],'_',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Number, Convert(varchar,GETDATE(),106) AS Date_Created,CONVERT(Date, [Booking Date]), [Expenditure Type] from [dbo].[921IndividualTS] &#xA;where  [wo_ref] !='0' AND [wo_ref] !='WG0046A'&#xA; group by [Employee Name],[Employee Number],[wo_ref],[Period End Date],[bgc_approver_name],[wood_approver_name],[Project Number],[Booking Date],[Expenditure Type];&#xA;&#xA;&#xA;INSERT INTO dbo.[Summary]&#xA;select distinct [Employee Name],[Employee Number],CONCAT([Employee Number],[Project Number],DATEPART ( DAY , [Booking Date] ),DATEPART ( month , [Booking Date] ),DATEPART ( year , [Booking Date] ),sum( [Hours/Quantity] ),'_',[Expenditure Type])as Code,[wo_ref] &#xA; as WO_Numbers,[bgc_approver_name] as [BGC Approver],[wood_approver_name] as [Wood Approver],[Project Number] as Oracle_Project_Number, &#xA;sum( [Hours/Quantity] ) AS Total_Hours,CONCAT('WE ',Convert(varchar,Convert(date,[Period End Date]),13)) as &#xA;Timesheet_Period, CONCAT('TS_',[wo_ref],'_',Convert(varchar,Convert(date,[Period End Date]),13)) as &#xA;Timesheet_Number, Convert(varchar,GETDATE(),106) AS Date_Created,CONVERT(Date, [Period End Date]), [Expenditure Type] from [dbo].[WG0046_WG00197_IndividualTS] &#xA; group by [Employee Name],[Employee Number],[wo_ref],[Period End Date],[bgc_approver_name],[wood_approver_name],[Project Number],[Booking Date],[Expenditure Type];&#xA;&#xA;INSERT INTO dbo.[Summary]&#xA;  select distinct [Employee Name],[Employee Number],CONCAT([Employee Number],[Project Number],DATEPART ( DAY , [Booking Date] ),DATEPART ( month , [Booking Date] ),DATEPART ( year , [Booking Date] ),sum( [Hours/Quantity] ),'_',[Expenditure Type])as Code,[Work Orders] as WO_Numbers,[BGC Approver],[Wood Approver],[Project Number] as Oracle_Project_Number, &#xA;sum( [Hours/Quantity] ) AS Total_Hours,CONCAT('WE ',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Period, CONCAT('TS_',[Work Orders],'_',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Number, Convert(varchar,GETDATE(),106) AS Date_Created,CONVERT(Date, [Period End Date]), [Expenditure Type] from [dbo].[963IndividualTS] &#xA; group by [Employee Name],[Employee Number],[Work Orders],[Period End Date],[BGC Approver],[Wood Approver],[Project Number],[Booking Date],[Expenditure Type];&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.[Summary]&#xA;&#xA;INSERT INTO dbo.[Summary]&#xA;select distinct [Employee Name],[Employee Number],CONCAT([Employee Number],[Project Number],DATEPART ( DAY , [Booking Date] ),DATEPART ( month , [Booking Date] ),DATEPART ( year , [Booking Date] ),sum( [Hours/Quantity] ),'_',[Expenditure Type])as Code, [wo_ref] as WO_Numbers,[bgc_approver_name] as&#xA;[BGC Approver],[wood_approver_name] as [Wood Approver],[Project Number] as Oracle_Project_Number, &#xA;sum( [Hours/Quantity] ) AS Total_Hours,CONCAT('WE ',Convert(varchar,Convert(date,[Period End Date]),13)) as &#xA;Timesheet_Period, CONCAT('TS_',[wo_ref],'_',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Number, Convert(varchar,GETDATE(),106) AS Date_Created,CONVERT(Date, [Booking Date]), [Expenditure Type] from [dbo].[921IndividualTS] &#xA;where  [wo_ref] !='0' AND [wo_ref] !='WG0243A' AND [wo_ref] !='WG0046A'&#xA; group by [Employee Name],[Employee Number],[wo_ref],[Period End Date],[bgc_approver_name],[wood_approver_name],[Project Number],[Booking Date],[Expenditure Type];&#xA;&#xA;&#xA;INSERT INTO dbo.[Summary]&#xA;select distinct [Employee Name],[Employee Number],CONCAT([Employee Number],[Project Number],DATEPART ( DAY , [Booking Date] ),DATEPART ( month , [Booking Date] ),DATEPART ( year , [Booking Date] ),sum( [Hours/Quantity] ),'_',[Expenditure Type])as Code,[wo_ref] &#xA; as WO_Numbers,[bgc_approver_name] as [BGC Approver],[wood_approver_name] as [Wood Approver],[Project Number] as Oracle_Project_Number, &#xA;sum( [Hours/Quantity] ) AS Total_Hours,CONCAT('WE ',Convert(varchar,Convert(date,[Period End Date]),13)) as &#xA;Timesheet_Period, CONCAT('TS_',[wo_ref],'_',Convert(varchar,Convert(date,[Period End Date]),13)) as &#xA;Timesheet_Number, Convert(varchar,GETDATE(),106) AS Date_Created,CONVERT(Date, [Period End Date]), [Expenditure Type] from [dbo].[WG0046_WG00197_IndividualTS] &#xA; group by [Employee Name],[Employee Number],[wo_ref],[Period End Date],[bgc_approver_name],[wood_approver_name],[Project Number],[Booking Date],[Expenditure Type];&#xA;&#xA;INSERT INTO dbo.[Summary]&#xA;  select distinct [Employee Name],[Employee Number],CONCAT([Employee Number],[Project Number],DATEPART ( DAY , [Booking Date] ),DATEPART ( month , [Booking Date] ),DATEPART ( year , [Booking Date] ),sum( [Hours/Quantity] ),'_',[Expenditure Type])as Code,[Work Orders] as WO_Numbers,[BGC Approver],[Wood Approver],[Project Number] as Oracle_Project_Number, &#xA;sum( [Hours/Quantity] ) AS Total_Hours,CONCAT('WE ',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Period, CONCAT('TS_',[Work Orders],'_',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Number, Convert(varchar,GETDATE(),106) AS Date_Created,CONVERT(Date, [Period End Date]), [Expenditure Type] from [dbo].[963IndividualTS] &#xA; group by [Employee Name],[Employee Number],[Work Orders],[Period End Date],[BGC Approver],[Wood Approver],[Project Number],[Booking Date],[Expenditure Type];&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -1116,7 +1120,7 @@
     design-time-name="Package\Export to Normal Excel">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="159,42"
           Id="Package\Export to Normal Excel\Excel Destination"
@@ -1148,7 +1152,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-27.84953125,6.64306640625,55.6990625,11.2138671875"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1170,7 +1176,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-27.84953125,26.14306640625,55.6990625,11.2138671875"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
