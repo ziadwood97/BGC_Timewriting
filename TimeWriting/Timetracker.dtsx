@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package2"
   DTS:PackageType="5"
-  DTS:VersionBuild="84"
-  DTS:VersionGUID="{2D1A77EB-EB1E-4F55-83CE-DA9A2A0EE144}">
+  DTS:VersionBuild="85"
+  DTS:VersionGUID="{1181793E-5195-4458-8AD6-319B7B754B98}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1441,7 +1441,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{658886C3-91A4-4B44-937C-9BE0229D6387}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.[Timetracker]&#xA;&#xA;INSERT INTO dbo.[Timetracker]&#xA;select distinct [wo_ref] as WO_Numbers,[bgc_approver_name] as [BGC Approver],[wood_approver_name] as [Wood Approver],[Project Number] as Oracle_Project_Number, &#xA;sum( [Hours/Quantity] ) AS Total_Hours,CONCAT('WE ',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Period, CONCAT('TS_',[wo_ref],'_',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Number, Convert(varchar,GETDATE(),106) AS Date_Created from [dbo].[921IndividualTS] &#xA;where [Period End Date] &gt;= DATEADD(week, -2, GETDATE()) AND [wo_ref] !='0' AND [wo_ref] !='WG00243A'&#xA; group by [wo_ref],[Period End Date],[bgc_approver_name],[wood_approver_name],[Project Number];&#xA;&#xA;&#xA;INSERT INTO dbo.[Timetracker]&#xA;select distinct [wo_ref] as WO_Numbers,[bgc_approver_name] as [BGC Approver],[wood_approver_name] as [Wood Approver],[Project Number] as Oracle_Project_Number, &#xA;sum( [Hours/Quantity] ) AS Total_Hours,CONCAT('WE ',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Period, CONCAT('TS_',[wo_ref],'_',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Number, Convert(varchar,GETDATE(),106) AS Date_Created from [dbo].[WG0046_WG00197_IndividualTS] &#xA;where [Period End Date] &gt;= DATEADD(week, -2, GETDATE())&#xA; group by [wo_ref],[Period End Date],[bgc_approver_name],[wood_approver_name],[Project Number];&#xA;&#xA;INSERT INTO dbo.[Timetracker]&#xA;select distinct [Work Orders] as WO_Numbers,[BGC Approver],[Wood Approver],[Project Number] as Oracle_Project_Number, &#xA;sum( [Hours/Quantity] ) AS Total_Hours,CONCAT('WE ',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Period, CONCAT('TS_',[Work Orders],'_',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Number, Convert(varchar,GETDATE(),106) AS Date_Created from [dbo].[963IndividualTS] &#xA;where [Period End Date] &gt;= DATEADD(week, -2, GETDATE()) &#xA; group by [Work Orders],[Period End Date],[BGC Approver],[Wood Approver],[Project Number];&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.[Timetracker]&#xA;&#xA;INSERT INTO dbo.[Timetracker]&#xA;select distinct [wo_ref] as WO_Numbers,[bgc_approver_name] as [BGC Approver],[wood_approver_name] as [Wood Approver],[Project Number] as Oracle_Project_Number, &#xA;sum( [Hours/Quantity] ) AS Total_Hours,CONCAT('WE ',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Period, CONCAT('TS_',[wo_ref],'_',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Number, Convert(varchar,GETDATE(),106) AS Date_Created from [dbo].[921IndividualTS] &#xA;where [Period End Date] &gt;= DATEADD(week, -1, GETDATE()) AND [wo_ref] !='0' AND [wo_ref] !='WG00243A'&#xA; group by [wo_ref],[Period End Date],[bgc_approver_name],[wood_approver_name],[Project Number];&#xA;&#xA;&#xA;INSERT INTO dbo.[Timetracker]&#xA;select distinct [wo_ref] as WO_Numbers,[bgc_approver_name] as [BGC Approver],[wood_approver_name] as [Wood Approver],[Project Number] as Oracle_Project_Number, &#xA;sum( [Hours/Quantity] ) AS Total_Hours,CONCAT('WE ',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Period, CONCAT('TS_',[wo_ref],'_',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Number, Convert(varchar,GETDATE(),106) AS Date_Created from [dbo].[WG0046_WG00197_IndividualTS] &#xA;where [Period End Date] &gt;= DATEADD(week, -1, GETDATE())&#xA; group by [wo_ref],[Period End Date],[bgc_approver_name],[wood_approver_name],[Project Number];&#xA;&#xA;INSERT INTO dbo.[Timetracker]&#xA;select distinct [Work Orders] as WO_Numbers,[BGC Approver],[Wood Approver],[Project Number] as Oracle_Project_Number, &#xA;sum( [Hours/Quantity] ) AS Total_Hours,CONCAT('WE ',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Period, CONCAT('TS_',[Work Orders],'_',Convert(varchar,Convert(date,[Period End Date]),13)) as Timesheet_Number, Convert(varchar,GETDATE(),106) AS Date_Created from [dbo].[963IndividualTS] &#xA;where [Period End Date] &gt;= DATEADD(week, -1, GETDATE()) &#xA; group by [Work Orders],[Period End Date],[BGC Approver],[Wood Approver],[Project Number];&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -1538,7 +1538,7 @@
     design-time-name="Package\Data Flow Task">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="159,42"
           Id="Package\Data Flow Task\Excel Destination"
@@ -1566,7 +1566,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

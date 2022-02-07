@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="175"
-  DTS:VersionGUID="{A0FBFF4F-57C6-4174-9377-BFEB4B3E4EB1}">
+  DTS:VersionBuild="183"
+  DTS:VersionGUID="{B971B0F0-6D29-454B-B11A-37FAE490F9A1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -60,6 +60,18 @@
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectionString="Data Source=ABZ44P-SQL1;Initial Catalog=Timewriting;Integrated Security=True;Application Name=SSIS-Package-{5241637A-1F85-4EC9-9565-4760946FF6A7}ABZ44P-SQL1.Timewriting1;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[IsProcessed]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{070DBE55-26CD-4DDD-8E11-34D31FAB1EE9}"
+      DTS:ObjectName="IsProcessed">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=J:\ZHZ\AutoZizo\22 Oct\Variance\IsProcessed.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -5755,7 +5767,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{658886C3-91A4-4B44-937C-9BE0229D6387}"
-          SQLTask:SqlStatementSource="DELETE FROM dbo.[921AE];&#xA;DELETE FROM dbo.[921IND];&#xA;DELETE FROM dbo.[921UK];&#xA;DELETE FROM dbo.[921ALL];&#xA;DELETE FROM dbo.[921BGCUse];&#xA;DELETE FROM dbo.[921Timesheetindv];&#xA;DELETE FROM dbo.[921Paff];&#xA;DELETE FROM dbo.[921IndividualTS];&#xA;DELETE FROM dbo.[921IndividualTSWeekly];&#xA;DELETE  FROM  [dbo].[921Approvers]&#xA;DELETE FROM [dbo].[WG0046A&amp;WG0197AApprovers]&#xA;DELETE FROM dbo.[921_WG0046A&amp;WG0197A]&#xA;DELETE FROM dbo.[WG0046_WG00197_IndividualTS]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="DELETE FROM dbo.[921AE];&#xA;DELETE FROM dbo.[921IND];&#xA;DELETE FROM dbo.[921UK];&#xA;DELETE FROM dbo.[921ALL];&#xA;DELETE FROM dbo.[921BGCUse];&#xA;DELETE FROM dbo.[921Timesheetindv];&#xA;DELETE FROM dbo.[921Paff];&#xA;DELETE FROM dbo.[921IndividualTS];&#xA;DELETE FROM dbo.[921IndividualTSWeekly];&#xA;DELETE  FROM  [dbo].[921Approvers]&#xA;DELETE FROM [dbo].[WG0046A&amp;WG0197AApprovers]&#xA;DELETE FROM dbo.[921_WG0046A&amp;WG0197A]&#xA;DELETE FROM dbo.[WG0046_WG00197_IndividualTS]&#xA;DELETE FROM dbo.[921VarTarget]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -13176,7 +13188,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{658886C3-91A4-4B44-937C-9BE0229D6387}"
-          SQLTask:SqlStatementSource="DELETE FROM [921BGCUse]&#xA;WHERE [Expenditure Type] = 'Training'  ;&#xA;&#xA;DELETE FROM [921BGCUse]&#xA;WHERE [Expenditure Type] = 'Offshore OT x 1.25'  ;&#xA;&#xA;DELETE FROM [921BGCUse]&#xA;WHERE [Expenditure Type] = 'Compassionate Leave Paid'  ;&#xA;&#xA;DELETE FROM [921BGCUse]&#xA;WHERE [Expenditure Type] = 'Overtime Accrual/Banked'  ;&#xA;&#xA;DELETE FROM [921BGCUse]&#xA;WHERE [Expenditure Type] = 'Public Holiday Paid'  ;&#xA;&#xA;DELETE FROM [921BGCUse]&#xA;WHERE [Expenditure Type] = 'Onshore Overtime Paid'  ;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="DELETE FROM [921BGCUse]&#xA;WHERE [Expenditure Type] = 'Training'  ;&#xA;&#xA;DELETE FROM [921BGCUse]&#xA;WHERE [Expenditure Type] = 'Offshore OT x 1.25'  ;&#xA;&#xA;DELETE FROM [921BGCUse]&#xA;WHERE [Expenditure Type] = 'Compassionate Leave Paid'  ;&#xA;&#xA;DELETE FROM [921BGCUse]&#xA;WHERE [Expenditure Type] = 'Overtime Accrual/Banked'  ;&#xA;&#xA;DELETE FROM [921BGCUse]&#xA;WHERE [Expenditure Type] = 'Public Holiday Paid'  ;&#xA;&#xA;DELETE FROM [921BGCUse]&#xA;WHERE [Expenditure Type] = 'Onshore Overtime Paid'  ;&#xA;&#xA;DELETE FROM [921BGCUse]&#xA;WHERE [Timecard Status] != 'Approved'  ;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -13276,7 +13288,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 11]"
       DTS:CreationName=""
-      DTS:DTSID="{7D4392EC-1B28-4C13-8BF0-97340D633B74}"
+      DTS:DTSID="{9778245D-A0AC-4755-8280-111EE7569F88}"
       DTS:From="Package\DELETE NULL APPROVERS"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 11"
@@ -13361,58 +13373,58 @@
         <NodeLayout
           Size="226,42"
           Id="Package\921 Individual timesheets table"
-          TopLeft="702,67" />
+          TopLeft="702,93" />
         <NodeLayout
           Size="136,42"
           Id="Package\BGC Use Fill"
-          TopLeft="428,233" />
+          TopLeft="428,259" />
         <NodeLayout
           Size="204,42"
           Id="Package\DELETE NULL APPROVERS"
-          TopLeft="1008,162" />
+          TopLeft="1008,188" />
         <NodeLayout
           Size="169,42"
           Id="Package\Delete Old Records"
-          TopLeft="192.461538461538,88.0769230769231" />
+          TopLeft="192.461538461538,114.076923076923" />
         <NodeLayout
           Size="194,42"
           Id="Package\Disciplined Individula TS"
-          TopLeft="668,211" />
+          TopLeft="668,237" />
         <NodeLayout
           Size="139,42"
           Id="Package\Excel --&gt; DB"
-          TopLeft="212.153846153846,195.461538461538" />
+          TopLeft="212.153846153846,221.461538461538" />
         <NodeLayout
           Size="180,42"
           Id="Package\Execute Process Task"
-          TopLeft="1164,87" />
+          TopLeft="1124,350" />
         <NodeLayout
           Size="265,42"
           Id="Package\Query 921 Tables (AE,IND,UK)--&gt;(ALL)"
-          TopLeft="148.076923076923,315.692307692308" />
+          TopLeft="148.076923076923,341.692307692308" />
         <NodeLayout
           Size="238,42"
           Id="Package\Remove Unecessary Expenditures"
-          TopLeft="412,143" />
+          TopLeft="412,169" />
         <NodeLayout
           Size="160,42"
           Id="Package\Update Discipline"
-          TopLeft="621,328" />
+          TopLeft="621,354" />
         <NodeLayout
           Size="143,42"
           Id="Package\Weekly DATA"
-          TopLeft="629,447" />
+          TopLeft="629,473" />
         <NodeLayout
           Size="202,42"
           Id="Package\WG00197A and WG0046A"
-          TopLeft="349,410" />
+          TopLeft="349,436" />
         <NodeLayout
           Size="179,42"
           Id="Package\WG0046A&amp;WG0197A"
-          TopLeft="887,345" />
+          TopLeft="887,371" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="279.307692307692,130.076923076923">
+          TopLeft="279.307692307692,156.076923076923">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -13434,7 +13446,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="323.410256410256,315.692307692308">
+          TopLeft="323.410256410256,341.692307692308">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -13468,7 +13480,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 10]"
-          TopLeft="675.666666666667,370">
+          TopLeft="675.666666666667,396">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -13501,42 +13513,8 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 11]"
-          TopLeft="1110,162">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="144,-33"
-              Start="0,0"
-              End="144,-25.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-12.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-12.5"
-                    Point2="0,-16.5"
-                    Point3="4,-16.5" />
-                  <mssgle:LineSegment
-                    End="140,-16.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="140,-16.5"
-                    Point2="144,-16.5"
-                    Point3="144,-20.5" />
-                  <mssgle:LineSegment
-                    End="144,-25.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="281.653846153846,237.461538461538">
+          TopLeft="281.653846153846,263.461538461538">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -13570,7 +13548,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="496,233">
+          TopLeft="496,259">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -13604,7 +13582,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="851.333333333333,109">
+          TopLeft="851.333333333333,135">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -13638,7 +13616,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="765,253">
+          TopLeft="765,279">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -13672,7 +13650,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="701,370">
+          TopLeft="701,396">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -13706,7 +13684,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="723,447">
+          TopLeft="723,473">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -13740,7 +13718,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
-          TopLeft="976.5,345">
+          TopLeft="976.5,371">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -13774,7 +13752,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 9]"
-          TopLeft="531,143">
+          TopLeft="531,169">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -13798,6 +13776,40 @@
                     Point3="247.666666666667,-24.2565905096661" />
                   <mssgle:LineSegment
                     End="247.666666666667,-26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 11]"
+          TopLeft="1142.66666666667,230">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="71.3333333333333,120"
+              Start="0,0"
+              End="71.3333333333333,112.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5603112840467" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,44.5603112840467"
+                    Point2="0,48.5603112840467"
+                    Point3="4,48.5603112840467" />
+                  <mssgle:LineSegment
+                    End="67.3333333333333,48.5603112840467" />
+                  <mssgle:CubicBezierSegment
+                    Point1="67.3333333333333,48.5603112840467"
+                    Point2="71.3333333333333,48.5603112840467"
+                    Point3="71.3333333333333,52.5603112840467" />
+                  <mssgle:LineSegment
+                    End="71.3333333333333,112.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
